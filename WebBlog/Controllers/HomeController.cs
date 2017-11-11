@@ -5,11 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebBlog.Models;
+using CoreBlogDataLibrary;
 
 namespace WebBlog.Controllers
 {
     public class HomeController : Controller
     {
+        private static AuthorRepository _authorRepo = new AuthorRepository();
+        private static PostRepository _postRepo = new PostRepository();
+
         public IActionResult Index()
         {
             return View();
