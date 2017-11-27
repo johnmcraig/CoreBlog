@@ -12,11 +12,11 @@ namespace WebBlog.Controllers
     public class HomeController : Controller
     {
         private static AuthorRepository _authorRepo = new AuthorRepository();
-        private static PostRepository _postRepo = new PostRepository();
+        private static PostRepository _postRepository = new PostRepository();
 
         public IActionResult Index()
         {
-            return View();
+            return View(_postRepository.List());
         }
 
         public IActionResult About()
