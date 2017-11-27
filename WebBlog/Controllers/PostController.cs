@@ -10,56 +10,66 @@ using Microsoft.AspNetCore.Authorization;
 namespace WebBlog.Controllers
 {
     [Authorize]
-    public class AuthorController : Controller
+    public class PostController : Controller
     {
-        private static AuthorRepository _authorRepo = new AuthorRepository();
+        private PostRepository _postRepo = new PostRepository();
+        private AuthorRepository _authorRepo = new AuthorRepository();
 
-        // GET: Author
+        // GET: Post
         public ActionResult Index()
         {
-            return View(_authorRepo.List());
+            return View(_postRepo.ListAll());
         }
 
-        // GET: Author/Details/5
+        // GET: Post/Details/5
         public ActionResult Details(int id)
         {
-            return View(_authorRepo.GetById(id));
+            return View(_postRepo.GetById(id));
         }
 
-        // GET: Author/Create
+        // GET: Post/Create
         public ActionResult Create()
         {
-            return View();
+            Post newPost = new Post
+            {
+                PostDate = DateTime.Now,
+                EditDate = DateTime.Now,
+                PublishDate = DateTime.Now,
+                PostAuthor = _authorRepo.GetById(1)
+            };
+            return View(newPost);
         }
 
-        // POST: Author/Create
+        // POST: Post/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Author newAuthor, IFormCollection collection)
+        public ActionResult Create(Post newPost, IFormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-                if (ModelState.IsValid)
+                newPost.PostAuthor = _authorRepo.GetById(newPost.PostAuthor.Id);
+
+                if(ModelState.IsValid)
                 {
-                    _authorRepo.Add(newAuthor);
+                    _postRepo.Add(newPost);
                 }
 
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View(newAuthor);
+                return View(newPost);
             }
         }
 
-        // GET: Author/Edit/5
+        // GET: Post/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Author/Edit/5
+        // POST: Post/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -76,13 +86,13 @@ namespace WebBlog.Controllers
             }
         }
 
-        // GET: Author/Delete/5
+        // GET: Post/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Author/Delete/5
+        // POST: Post/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

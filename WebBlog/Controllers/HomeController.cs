@@ -16,7 +16,7 @@ namespace WebBlog.Controllers
 
         public IActionResult Index()
         {
-            return View(_postRepository.List());
+            return View();
         }
 
         public IActionResult About()
