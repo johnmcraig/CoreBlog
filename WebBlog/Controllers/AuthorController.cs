@@ -4,21 +4,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using CoreBlogDataLibrary;
 
 namespace WebBlog.Controllers
 {
     public class AuthorController : Controller
     {
+        private static AuthorRepository _authorRepo = new AuthorRepository();
+
         // GET: Author
         public ActionResult Index()
         {
-            return View();
+            return View(_authorRepo.List());
         }
 
         // GET: Author/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(_authorRepo.GetById(id));
         }
 
         // GET: Author/Create
@@ -30,17 +33,20 @@ namespace WebBlog.Controllers
         // POST: Author/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Author newAuthor, IFormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                if (ModelState.IsValid)
+                {
+                    _authorRepo.Add(newAuthor);
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(newAuthor);
             }
         }
 
