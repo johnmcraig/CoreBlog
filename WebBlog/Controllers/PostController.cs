@@ -18,6 +18,7 @@ namespace WebBlog.Controllers
         // GET: Post
         public ActionResult Index()
         {
+            var post = _postRepo.ListAll();
             return View(_postRepo.ListAll());
         }
 
