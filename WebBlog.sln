@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBlog", "WebBlog\WebBlog.csproj", "{F3B977DB-FA0D-4488-BE14-074F49C75139}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebBlog", "WebBlog\WebBlog.csproj", "{F3B977DB-FA0D-4488-BE14-074F49C75139}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreBlogDataLibrary", "..\CoreBlogDataLibrary\CoreBlogDataLibrary.csproj", "{A90D56DE-E457-49DC-9F8B-FF31519E7A00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreBlogDataLibrary", "CoreBlogDataLibrary\CoreBlogDataLibrary.csproj", "{957CFD2D-8C3F-48F8-B983-56037D829963}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{F3B977DB-FA0D-4488-BE14-074F49C75139}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3B977DB-FA0D-4488-BE14-074F49C75139}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3B977DB-FA0D-4488-BE14-074F49C75139}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A90D56DE-E457-49DC-9F8B-FF31519E7A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A90D56DE-E457-49DC-9F8B-FF31519E7A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A90D56DE-E457-49DC-9F8B-FF31519E7A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A90D56DE-E457-49DC-9F8B-FF31519E7A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{957CFD2D-8C3F-48F8-B983-56037D829963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{957CFD2D-8C3F-48F8-B983-56037D829963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{957CFD2D-8C3F-48F8-B983-56037D829963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{957CFD2D-8C3F-48F8-B983-56037D829963}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
