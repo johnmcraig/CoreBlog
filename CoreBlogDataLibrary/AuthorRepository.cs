@@ -11,7 +11,7 @@ namespace CoreBlogDataLibrary
     {
         private static List<Author> _authors = new List<Author>();
         private static int _nextId = 1;
-        private static string path = @"C:\Users\Mark\Desktop\Projects\BlogRepo";
+        private static string path = @"C:\Desktop\Projects\BlogRepo";
         private static string fileName = "authorList.json";
 
         public AuthorRepository()

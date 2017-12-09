@@ -11,10 +11,10 @@
             <article>
                 <h2><a href="@post.Permalink">@post.Title</a></h2>
                 <div>
-                    By: @post.PostAuthor?.FirstName
+                    By: @post.PostAuthor?.FirstName @post.PostAuthor?.LastName
                 </div>
                 <div>
-                    @post.PostContent
+                    @Html.Raw(post.PostContent)
                 </div>
             </article>
         }
