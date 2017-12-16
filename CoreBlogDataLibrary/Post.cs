@@ -7,7 +7,7 @@ namespace CoreBlogDataLibrary
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public string Permalink { get; internal set; }
+        public string Permalink { get; set; }
         public Author PostAuthor { get; set; }
         public string PostContent { get; set; }
         [DataType(DataType.Date)]
