@@ -56,14 +56,19 @@ namespace WebBlog.Controllers
         // GET: Author/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(_authorRepo.GetById(id));
         }
 
         // POST: Author/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Author editedAuthor, IFormCollection collection)
         {
+            //if (ModelState.IsValid)
+            //{
+            //    _authorRepo.Update(editedAuthor);
+            //}
+
             try
             {
                 // TODO: Add update logic here
@@ -72,14 +77,14 @@ namespace WebBlog.Controllers
             }
             catch
             {
-                return View();
+                return View(editedAuthor);
             }
         }
 
         // GET: Author/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(_authorRepo.GetById(id));
         }
 
         // POST: Author/Delete/5
