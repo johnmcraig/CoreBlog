@@ -67,6 +67,14 @@ namespace CoreBlogDataLibrary
             SaveToFile();
         }
 
+        public void Delete(int id)
+        {
+            var post = GetById(id);
+            _posts.Remove(post);
+            SaveToFile();
+            
+        }
+
         public void Add(Post newPost)
         {
             newPost.Id = _nextId++;

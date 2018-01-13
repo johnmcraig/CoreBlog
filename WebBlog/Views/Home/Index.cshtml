@@ -9,7 +9,7 @@
         @foreach(var post in Model)
         {
             <article>
-                <h2><a href="@post.Permalink">@post.Title</a></h2>
+                <h2><a href="/PostDetails/@post.Permalink">@post.Title</a></h2>
                 <div>
                     By: @post.PostAuthor?.FirstName @post.PostAuthor?.LastName
                 </div>

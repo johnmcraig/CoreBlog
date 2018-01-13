@@ -27,6 +27,12 @@ namespace WebBlog.Controllers
         {
             return View(_postRepo.GetById(id));
         }
+        [AllowAnonymous]
+        [Route("/PostDetails/{permalink}")]
+        public ActionResult PostDetails(string permalink)
+        {
+            return View(_postRepo.GetByPermalink(permalink));
+        }
 
         // GET: Post/Create
         public ActionResult Create()
@@ -90,7 +96,7 @@ namespace WebBlog.Controllers
         // GET: Post/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(_postRepo.GetById(id));
         }
 
         // POST: Post/Delete/5
@@ -101,7 +107,7 @@ namespace WebBlog.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                _postRepo.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
