@@ -67,17 +67,17 @@ namespace WebBlog.Controllers
         // GET: Post/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(_postRepo.GetById(id));
         }
 
         // POST: Post/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Post editPost, IFormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                _postRepo.Update(editPost);
 
                 return RedirectToAction(nameof(Index));
             }

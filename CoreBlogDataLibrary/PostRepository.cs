@@ -16,7 +16,7 @@ namespace CoreBlogDataLibrary
 
         public PostRepository()
         {
-            if(_posts.Count < 1)
+            if (_posts.Count < 1)
             {
                 LoadFromFile();
             }
@@ -35,7 +35,7 @@ namespace CoreBlogDataLibrary
             return _posts
                 .OrderByDescending(p => p.PostDate)
                 .ToList();
-                
+
         }
 
         public Post GetById(int id)
@@ -48,6 +48,23 @@ namespace CoreBlogDataLibrary
         {
             return _posts
                 .Find(p => p.Permalink == permalink);
+        }
+
+        public void Update(Post updatePost)
+        {
+            var post = GetById(updatePost.Id);
+            if (updatePost.PostAuthor == null)
+            {
+                updatePost.PostAuthor = new Author();
+            }
+            post.Title = updatePost.Title;
+            post.Permalink = updatePost.Permalink;
+            //post.PostAuthor = updatePost.PostAuthor;
+            post.PostContent = updatePost.PostContent;
+            post.PostDate = updatePost.PostDate;
+            post.PublishDate = updatePost.PublishDate;
+            post.EditDate = updatePost.EditDate;
+            SaveToFile();
         }
 
         public void Add(Post newPost)
